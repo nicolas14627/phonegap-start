@@ -1,46 +1,401 @@
-<!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
+<head>
+<meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<select class="form-control">
+  <option>plage</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+<select class="form-control">
+  <option>equipe</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+<input class="btn btn-default" type="submit" value="Submit">
+<title>KILOS DE DECHETS</title>
+<link href="texte.css" rel="stylesheet" type="text/css">
+<script type="text/javascript"> 
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+//-->
+</script> 
+<script type="text/javascript"> 
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+ 
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<script language="javascript" type="text/javascript">
+<!--
+function addFav()
+{
+if (document.all)
+{
+window.external.AddFavorite(location.href, document.title);
+}
+else
+{
+alert('Vous pouvez faire CTRL + D pour ajouter cette page dans vos signets, ou favoris.')
+}
+}
+
+var calc_op = '';
+var calc_buf = 0;
+var calc_new = false;
+var calc_buf2 = 0;
+
+function executeOperation(op,cur)
+{
+    if(calc_new)
+        cur = calc_buf2;
+    else
+        calc_buf2 = cur;
+    calc_new = true;
+    if(calc_op == '+')
+        calc_buf += parseFloat(cur);
+    else if(calc_op == '-')
+        calc_buf -= parseFloat(cur);
+    else if(calc_op == '*')
+        calc_buf *= parseFloat(cur);
+    else if(calc_op == '/')
+        calc_buf /= parseFloat(cur);
+    else
+        calc_buf = parseFloat(cur);
+    document.getElementById('ecran').innerHTML = calc_buf;
+    if(op != '=') calc_op = op;
+}
+
+function btPress(obj)
+{
+    var curEcran = document.getElementById('ecran').innerHTML;
+    var parts = obj.name.split('_');
+
+    if(parts[0] == 'digit')
+    {
+        if(curEcran.length > 20) return;
+        if(calc_new)
+        {
+            calc_new = false;
+            document.getElementById('ecran').innerHTML = parts[1];
+        }
+        else if(curEcran == '0')
+            document.getElementById('ecran').innerHTML = parts[1];
+        else
+            document.getElementById('ecran').innerHTML = curEcran + parts[1];
+    }
+    else if (parts[0] == 'op')
+    {
+        if(calc_new && calc_op != '=')
+            calc_op = obj.value;
+        else
+            executeOperation(obj.value,curEcran);
+    }
+    else if (parts[0] == 'special')
+    {
+        if(parts[1] == 'plusMinus')
+        {
+            if(curEcran.length > 20) return;
+            document.getElementById('ecran').innerHTML = parseFloat(curEcran) * -1;
+        }
+        else if(parts[1] == 'oneOn')
+        {
+            if(parseFloat(curEcran) == 0)
+            {
+                alert('Division par 0 non autorisé');
+                return;
+            }
+
+            document.getElementById('ecran').innerHTML = 1/parseFloat(curEcran);
+        }
+        else if(parts[1] == 'dot')
+        {
+            if(curEcran.length > 20) return;
+            if(calc_new)
+            {
+                document.getElementById('ecran').innerHTML = '0.';
+                calc_new = false;
+            }
+            else if(curEcran.indexOf('.') == -1)
+                document.getElementById('ecran').innerHTML = curEcran + '.';
+        }
+        else if(parts[1] == 'pourcent')
+        {
+            executeOperation('=', parseFloat(curEcran) / 100);
+        }
+        else if(parts[1] == 'square')
+        {
+            if(parseFloat(curEcran)<0)
+            {
+                alert('Racine pour une valeur négative non autorisée');
+                return;
+            }
+            document.getElementById('ecran').innerHTML = Math.sqrt(parseFloat(curEcran));
+        }
+        else if(parts[1] == 'C')
+        {
+            calc_buf = 0;
+            calc_buf2 = 0;
+            calc_op = '';
+            document.getElementById('ecran').innerHTML = '0';
+            calc_new = false;
+        }
+        else if(parts[1] == 'CE')
+        {
+            document.getElementById('ecran').innerHTML = '0';
+            calc_new = true;
+        }
+        else if(parts[1] == 'equal')
+        {
+            executeOperation('=', curEcran);
+        }
+        else if(parts[1] == 'back')
+        {
+            if(curEcran.length == 1)
+                document.getElementById('ecran').innerHTML = '0';
+            else
+                document.getElementById('ecran').innerHTML = curEcran.substr(0, curEcran.length-1);
+        }
+    }
+    obj.blur();
+}
+
+var keyPress = function (e)
+{
+    e = e || window.event;
+    var k = e.keyCode || e.which;
+    switch(k)
+    {
+        case 13:
+            btPress(document.fCalc.special_equal);
+            break;
+        case 27:
+            btPress(document.fCalc.special_CE);
+            break;
+        case 46:
+            btPress(document.fCalc.special_back);
+            break;
+        case 48:
+        case 96:
+            btPress(document.fCalc.digit_0);
+            break;
+        case 49:
+        case 97:
+            btPress(document.fCalc.digit_1);
+            break;
+        case 50:
+        case 98:
+            btPress(document.fCalc.digit_2);
+            break;
+        case 51:
+        case 99:
+            btPress(document.fCalc.digit_3);
+            break;
+        case 52:
+        case 100:
+            btPress(document.fCalc.digit_4);
+            break;
+        case 53:
+        case 101:
+            btPress(document.fCalc.digit_5);
+            break;
+        case 54:
+        case 102:
+            btPress(document.fCalc.digit_6);
+            break;
+        case 55:
+        case 103:
+            btPress(document.fCalc.digit_7);
+            break;
+        case 56:
+        case 104:
+            btPress(document.fCalc.digit_8);
+            break;
+        case 57:
+        case 105:
+            btPress(document.fCalc.digit_9);
+            break;
+        case 106:
+            btPress(document.fCalc.op_times);
+            break;
+        case 107:
+            btPress(document.fCalc.op_plus);
+            break;
+        case 109:
+            btPress(document.fCalc.op_minus);
+            break;
+        case 110:
+            btPress(document.fCalc.special_dot);
+            break;
+        case 111:
+            btPress(document.fCalc.op_divide);
+            break;
+        default:
+            break;
+    }
+}
+
+function keyPressBackspace(e)
+{
+    e = e || window.event;
+    var k = e.keyCode || e.which;
+    if(k == 8)
+    {
+        if(e.type=='keydown') btPress(document.fCalc.special_back);
+        if(e.preventDefault)
+        {
+            e.preventDefault();
+            e.stopPropagation();
+            e.cancelBubble = true;
+        }
+        else
+        {
+            e.cancelBubble = true;
+        }
+        return false;
+    }
+    return true;
+}
+
+function loadKeyboard()
+{
+    document.onkeydown = keyPressBackspace;
+    document.onkeypress = keyPressBackspace;
+    document.onkeyup = keyPress;
+}
+
+
+//-->
+</script>
+
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="loadKeyboard()">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td align="center">
+<table width="747" border="0" cellspacing="0" cellpadding="0">
+<tr><td height="27"></td></tr>
+<tr><td align="center"><a href="javascript:addFav()"><img width="333" height="69" border="0" alt="KILO DE DECHETS" title="KILOS DE DECHETS"></a></td></tr>
+<tr><td height="29"></td></tr>
+<tr><td background="images/back.gif" height="433" valign="top" align="center">
+<table width="747" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+<form name="fCalc" style="display:inline" onSubmit="return false;">
+<table width="747" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="12" height="82"></td>
+<td width="722" id="ecran" align="right" class="padding-ecran">0</td>
+<td width="15"></td>
+</tr></table>
+<table width="747" border="0" cellspacing="0" cellpadding="0"><tr><td height="20"></td></tr></table>
+<table width="628" border="0" cellspacing="0" cellpadding="0"><tr>
+<td width="78">
+<table width="78" border="0" cellspacing="0" cellpadding="0">
+<tr><td height="67" background="images/btn-bleu-1.gif" valign="top" align="center" class="padding"><input name="special_back" type="button" class="bouton-bleu" value="<<" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-bleu-2.gif" valign="top" align="center" class="padding"><input name="special_CE" type="button" class="bouton-bleu" value="CE" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-gris-1.gif" align="center" valign="top" class="padding"><input name="special_C" type="button" class="bouton-gris" value="C" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+</table>
+</td>
+<td width="62"></td>
+<td width="78">
+<table width="78" border="0" cellspacing="0" cellpadding="0">
+<tr><td height="67" background="images/btn-blanc-1.gif" valign="top" align="center" class="padding"><input name="digit_7" type="button" class="bouton-blanc" value="7" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-blanc-2.gif" align="center" valign="top" class="padding"><input name="digit_4" type="button" class="bouton-blanc" value="4" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-blanc-3.gif" align="center" valign="top" class="padding"><input name="digit_3" type="button" class="bouton-blanc" value="3" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-blanc-4.gif" align="center" valign="top" class="padding"><input name="digit_0" type="button" class="bouton-blanc" value="0" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+</table>
+</td>
+<td width="12"></td>
+<td width="78">
+<table width="78" border="0" cellspacing="0" cellpadding="0">
+<tr><td height="67" background="images/btn-blanc-5.gif" align="center" valign="top" class="padding"><input name="digit_8" type="button" class="bouton-blanc" value="8" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-blanc-6.gif" align="center" valign="top" class="padding"><input name="digit_5" type="button" class="bouton-blanc" value="5" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-blanc-7.gif" align="center" valign="top" class="padding"><input name="digit_2" type="button" class="bouton-blanc" value="2" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="" align="center" valign="top" class="padding"><input name="" type="button" class="bouton-blanc" value="&#8734" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+</table>
+</td>
+<td width="12"></td>
+<td width="78">
+<table width="78" border="0" cellspacing="0" cellpadding="0">
+<tr><td height="67" background="images/btn-blanc-9.gif" align="center" valign="top" class="padding"><input name="digit_9" type="button" class="bouton-blanc" value="9" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-blanc-10.gif" align="center" valign="top" class="padding"><input name="digit_6" type="button" class="bouton-blanc" value="6" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-blanc-11.gif" align="center" valign="top" class="padding"><input name="digit_1" type="button" class="bouton-blanc" value="1" onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+<tr><td height="3"></td></tr>
+<tr><td height="67" background="images/btn-blanc-12.gif" align="center" valign="top" class="padding"><input name="special_dot" type="button" class="bouton-blanc" value="," onClick="btPress(this)" style="width:50px;height:40px;"></td></tr>
+</table>
+</td>
+<td width="62"></td>
+<td width="78">
+</td>
+<td width="12"></td>
+<td width="78">
+<table width="78" border="0" cellspacing="0" cellpadding="0">
+</table>
+</td>
+</tr></table></form><span id="deb"></span>
+</td></tr>
+<tr><td height="13"></td></tr>
+
+<tr><td height="110" align=right>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Calculette -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-9982563458553196"
+     data-ad-slot="5545274156"></ins>
+	  <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+
+</body>
 </html>
